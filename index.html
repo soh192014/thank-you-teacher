@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d1eeea">
+
+<title>老师，谢谢你 🌷</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+:root {
+    --mint: #d1eeea;
+    --green: #0cf296;
+    --dark-green: #268b70;
+    --text: #345c53;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    min-height: 100vh;
+    font-family: "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #d1eeea, #e9fff6);
+    color: var(--text);
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(38,139,112,0.12);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.flower {
+    font-size: 38px;
+}
+
+h1 {
+    color: var(--dark-green);
+    font-family: "Ma Shan Zheng", cursive;
+    font-size: clamp(36px, 7vw, 55px);
+    margin: 10px 0;
+}
+
+.subtitle {
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.section-title {
+    color: var(--dark-green);
+    font-size: 21px;
+    margin: 25px 0 18px;
+}
+
+.divider {
+    height: 1px;
+    background: #e6f2ed;
+    margin: 30px 0;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 2px solid #dcefe9;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #56c9a6;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #35c99b, #0cf296);
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.status {
+    text-align: center;
+    margin-top: 15px;
+    min-height: 24px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.count {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #91aaa1;
+}
+
+.message-card {
+    padding: 17px;
+    margin-bottom: 13px;
+    background: #f3fbf8;
+    border-left: 4px solid #69d6b0;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+.message-name {
+    font-weight: bold;
+    color: #268b70;
+    margin-bottom: 8px;
+}
+
+.message-text {
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+.message-time {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #91aaa1;
+}
+
+.empty {
+    text-align: center;
+    padding: 30px 10px;
+    color: #91aaa1;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #91aaa1;
+}
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 23px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+    <header>
+
+        <div class="flower">🌷 🌿 🌷</div>
+
+        <h1>老师，谢谢你</h1>
+
+        <p class="subtitle">
+            感谢老师一直以来的辛勤付出与耐心指导。<br>
+            因为有您的陪伴，我们才能不断成长。<br>
+            祝老师身体健康、工作顺利、生活幸福！
+        </p>
+
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- 留言表单 -->
+
+    <section>
+
+        <h2 class="section-title">💌 写下你的感谢</h2>
+
+        <form id="messageForm">
+
+            <div class="form-group">
+
+                <label for="studentName">你的名字</label>
+
+                <input
+                    id="studentName"
+                    type="text"
+                    maxlength="30"
+                    placeholder="请输入你的名字"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="studentMessage">感谢留言</label>
+
+                <textarea
+                    id="studentMessage"
+                    maxlength="500"
+                    placeholder="写下你想对老师说的话……"
+                    required
+                ></textarea>
+
+                <div class="count">
+                    <span id="charCount">0</span>/500
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="submit-button"
+                id="submitButton"
+            >
+                🌷 发送感谢
+            </button>
+
+        </form>
+
+        <div
+            class="status"
+            id="formStatus"
+            aria-live="polite"
+        ></div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 留言墙 -->
+
+    <section>
+
+        <h2 class="section-title">
+            💚 来自同学们的感谢
+        </h2>
+
+        <div id="messageList">
+
+            <div class="empty">
+                正在加载留言……
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        Made with 💚 for our teachers
+    </footer>
+
+</main>
+
+
+<script>
+
+// ==================================================
+// 1. SUPABASE CONFIGURATION
+// ==================================================
+
+const CONFIG = {
+
+    // 填入你的 Supabase Project URL
+    SUPABASE_URL: "https://oicbculzzyydkueryrcj.supabase.co",
+
+    // 填入你的 Publishable Key
+    SUPABASE_KEY: "sb_publishable_pIi99Qo0hqnV8_hOJ62vSQ_dMFeK9rB",
+
+    // Edge Function 名称
+    FUNCTION_NAME: "teacher-messages",
+
+    // 自动刷新：30 秒
+    REFRESH_INTERVAL: 30000,
+
+    // 最多显示 100 条留言
+    MAX_MESSAGES: 100
+
+};
+
+
+// ==================================================
+// 2. API CONFIGURATION
+// ==================================================
+
+const API_URL =
+    `${CONFIG.SUPABASE_URL.replace(/\/+$/, "")}` +
+    `/functions/v1/${CONFIG.FUNCTION_NAME}`;
+
+
+function getHeaders() {
+
+    return {
+
+        "Content-Type": "application/json",
+
+        "apikey": CONFIG.SUPABASE_KEY
+
+    };
+
+}
+
+
+function checkConfiguration() {
+
+    if (
+        CONFIG.SUPABASE_URL === "YOUR_SUPABASE_URL" ||
+        CONFIG.SUPABASE_KEY === "YOUR_PUBLISHABLE_KEY" ||
+        !CONFIG.SUPABASE_URL ||
+        !CONFIG.SUPABASE_KEY
+    ) {
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+// ==================================================
+// 3. GET MESSAGES
+// ==================================================
+
+async function getMessages() {
+
+    const response = await fetch(API_URL, {
+
+        method: "GET",
+
+        headers: getHeaders()
+
+    });
+
+    if (!response.ok) {
+
+        throw new Error(
+            "读取留言失败：" + response.status
+        );
+
+    }
+
+    const data = await response.json();
+
+    return data.messages || [];
+
+}
+
+
+// ==================================================
+// 4. SAVE MESSAGE
+// ==================================================
+
+async function saveMessage(name, message) {
+
+    const response = await fetch(API_URL, {
+
+        method: "POST",
+
+        headers: getHeaders(),
+
+        body: JSON.stringify({
+
+            name: name,
+
+            message: message
+
+        })
+
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+
+        throw new Error(
+            data.error || "提交失败"
+        );
+
+    }
+
+    return data;
+
+}
+
+
+// ==================================================
+// 5. DISPLAY MESSAGES
+// ==================================================
+
+function displayMessages(messages) {
+
+    const list =
+        document.getElementById("messageList");
+
+    list.replaceChildren();
+
+    if (!messages.length) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className = "empty";
+
+        empty.textContent =
+            "🌱 还没有留言，成为第一个感谢老师的人吧！";
+
+        list.appendChild(empty);
+
+        return;
+
+    }
+
+    messages
+        .slice(0, CONFIG.MAX_MESSAGES)
+        .forEach(item => {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "message-card";
+
+
+            const name =
+                document.createElement("div");
+
+            name.className = "message-name";
+
+            name.textContent =
+                "🌷 " + item.student_name;
+
+
+            const message =
+                document.createElement("div");
+
+            message.className = "message-text";
+
+            message.textContent =
+                item.message;
+
+
+            const time =
+                document.createElement("div");
+
+            time.className = "message-time";
+
+            const date =
+                new Date(item.created_at);
+
+            time.textContent =
+                isNaN(date.getTime())
+                    ? ""
+                    : date.toLocaleString();
+
+
+            card.appendChild(name);
+
+            card.appendChild(message);
+
+            card.appendChild(time);
+
+            list.appendChild(card);
+
+        });
+
+}
+
+
+// ==================================================
+// 6. REFRESH MESSAGES
+// ==================================================
+
+let isRefreshing = false;
+
+async function refreshMessages() {
+
+    if (!checkConfiguration()) {
+
+        document.getElementById("messageList")
+            .textContent =
+            "⚙️ 请先设置 Supabase URL 和 Publishable Key。";
+
+        return;
+
+    }
+
+    if (isRefreshing) return;
+
+    isRefreshing = true;
+
+    try {
+
+        const messages = await getMessages();
+
+        displayMessages(messages);
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("messageList")
+            .textContent =
+            "⚠️ 无法加载留言，请检查网络和 Supabase 设置。";
+
+    } finally {
+
+        isRefreshing = false;
+
+    }
+
+}
+
+
+// ==================================================
+// 7. SUBMIT MESSAGE
+// ==================================================
+
+const form =
+    document.getElementById("messageForm");
+
+const statusBox =
+    document.getElementById("formStatus");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("studentName")
+            .value.trim();
+
+    const message =
+        document.getElementById("studentMessage")
+            .value.trim();
+
+
+    // 检查输入
+    if (!name || !message) {
+
+        statusBox.textContent =
+            "⚠️ 请填写姓名和留言。";
+
+        return;
+
+    }
+
+
+    if (name.length > 30 || message.length > 500) {
+
+        statusBox.textContent =
+            "⚠️ 输入内容超过长度限制。";
+
+        return;
+
+    }
+
+
+    if (!checkConfiguration()) {
+
+        statusBox.textContent =
+            "⚙️ 请先设置 Supabase 配置。";
+
+        return;
+
+    }
+
+
+    // 防止重复点击
+    submitButton.disabled = true;
+
+    submitButton.textContent =
+        "正在发送……";
+
+    statusBox.textContent =
+        "☁️ 正在提交留言……";
+
+
+    try {
+
+        // 发送到 Supabase Edge Function
+        // 粗口审核由服务器完成
+
+        await saveMessage(name, message);
+
+        statusBox.textContent =
+            "💚 提交成功！感谢你对老师的祝福！";
+
+        form.reset();
+
+        document.getElementById("charCount")
+            .textContent = "0";
+
+        await refreshMessages();
+
+    } catch (error) {
+
+        console.error(error);
+
+        statusBox.textContent =
+            "❌ " + error.message;
+
+    } finally {
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+            "🌷 发送感谢";
+
+    }
+
+});
+
+
+// ==================================================
+// 8. CHARACTER COUNTER
+// ==================================================
+
+document
+    .getElementById("studentMessage")
+    .addEventListener("input", function() {
+
+        document.getElementById("charCount")
+            .textContent = this.value.length;
+
+    });
+
+
+// ==================================================
+// 9. START APPLICATION
+// ==================================================
+
+refreshMessages();
+
+setInterval(
+    refreshMessages,
+    CONFIG.REFRESH_INTERVAL
+);
+
+</script>
+
+</body>
+</html>
