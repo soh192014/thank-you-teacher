@@ -177,6 +177,39 @@
             overflow-wrap: anywhere;
         }
 
+        .footer {
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid #dceee9;
+            text-align: center;
+            font-family: "Segoe UI", sans-serif;
+            font-size: 13px;
+            color: #66847b;
+            line-height: 1.8;
+         }
+
+        .footer p {
+            margin: 5px 0;
+         }
+
+        .footer a {
+            color: #159b72;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+         }
+
+        .footer a:hover {
+            color: #08734f;
+            text-decoration: underline;
+        }
+
+       .footer .copyright {
+            font-size: 12px;
+            color: #91aaa2;
+            letter-spacing: 0.5px;
+        }
+
         /* 手机适配 */
         @media (max-width: 600px) {
             .container {
@@ -252,12 +285,22 @@
                 </button>
 
             </div>
-            <p>有问题请联络yifeng14919@gmail.com</p>
-            <p>由Soh_192014制作</p>
 
         </div>
 
     </div>
+    
+    <footer class="footer">
+    <p>
+        有问题？欢迎联系
+        <a href="mailto:yifeng14919@gmail.com">
+            yifeng14919@gmail.com
+        </a>
+    </p>
+    <p class="copyright">
+        Made with 💚 by <strong>Soh_192014</strong>
+    </p>
+</footer>
 
 <script>
 "use strict";
