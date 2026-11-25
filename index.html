@@ -214,7 +214,7 @@
 
             <div class="students">
 
-                感谢每一位老师的辛勤付出！💚
+                感谢每一位老师的辛勤付出！❤️
 
                 <!-- 留言输入 -->
                 <form class="message-form" id="messageForm">
@@ -265,9 +265,9 @@
 ===================================== */
 
 const CONFIG = {
-    SUPABASE_URL: "YOUR_SUPABASE_URL",
-    SUPABASE_KEY: "YOUR_PUBLISHABLE_KEY",
-    FUNCTION_NAME: "teacher-messages"
+    SUPABASE_URL: "https://oicbculzzyydkueryrcj.supabase.co",
+    SUPABASE_KEY: "sb_publishable_pIi99Qo0hqnV8_hOJ62vSQ_dMFeK9rB",
+    FUNCTION_NAME: "swift-service"
 };
 
 const API_URL =
@@ -376,7 +376,7 @@ async function loadMessages() {
         if (data.messages.length === 0) {
 
             messageList.textContent =
-                "还没有留言，成为第一个留下感谢的人吧！💚";
+                "还没有留言，成为第一个留下感谢的人吧！❤️";
 
             return;
         }
@@ -468,7 +468,7 @@ form.addEventListener("submit", async (event) => {
         }
 
         form.reset();
-        setStatus("感谢已经成功送达！💚");
+        setStatus("感谢已经成功送达！❤️");
 
         await loadMessages();
 
