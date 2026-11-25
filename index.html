@@ -2,698 +2,498 @@
 <html lang="zh-CN">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#d1eeea">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>老师，谢谢你 🌷</title>
+    <title>老师，谢谢你</title>
 
-<style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
 
-@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+    <style>
+        :root {
+            --black: #000000;
+            --light: #d1eeea;
+            --primary: #0cf296;
+        }
 
-:root {
-    --mint: #d1eeea;
-    --green: #0cf296;
-    --dark-green: #268b70;
-    --text: #345c53;
-    --white: #ffffff;
-}
+        /* 页面基础设置 */
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: var(--light);
+            color: var(--black);
 
-body {
-    margin: 0;
-    padding: 30px 15px;
-    min-height: 100vh;
-    font-family: "Microsoft YaHei", sans-serif;
-    background: linear-gradient(135deg, #d1eeea, #e9fff6);
-    color: var(--text);
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-.container {
-    max-width: 750px;
-    margin: auto;
-    padding: 35px;
-    background: white;
-    border-radius: 25px;
-    box-shadow: 0 10px 35px rgba(38,139,112,0.12);
-}
+            min-height: 100vh;
+            padding: 20px;
+            user-select: none;
+        }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        /* 标题 */
+        .title {
+            font-family: "Ma Shan Zheng", "PingFang SC", Arial, sans-serif;
+            font-size: clamp(48px, 10vw, 100px);
+            font-weight: bold;
+            text-align: center;
+        }
 
-.flower {
-    font-size: 38px;
-}
+        /* 正文 */
+        .body {
+            font-family: "Zhi Mang Xing", "PingFang SC", Arial, sans-serif;
+            font-size: clamp(22px, 4vw, 30px);
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.8;
+        }
 
-h1 {
-    color: var(--dark-green);
-    font-family: "Ma Shan Zheng", cursive;
-    font-size: clamp(36px, 7vw, 55px);
-    margin: 10px 0;
-}
+        /* 副标题 */
+        .body2 {
+            font-family: "Zhi Mang Xing", "PingFang SC", Arial, sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
 
-.subtitle {
-    line-height: 1.9;
-    font-size: 15px;
-}
+        /* 主卡片 */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
 
-.section-title {
-    color: var(--dark-green);
-    font-size: 21px;
-    margin: 25px 0 18px;
-}
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
-.divider {
-    height: 1px;
-    background: #e6f2ed;
-    margin: 30px 0;
-}
+            max-width: 900px;
+            width: 100%;
+        }
 
-.form-group {
-    margin-bottom: 18px;
-}
+        /* 学生留言区域：保留旧版样式 */
+        .students {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0faf7;
+            border-radius: 12px;
+            text-align: center;
+            font-family: "Zhi Mang Xing", sans-serif;
+            font-size: 22px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
+        /* 新增：输入区域 */
+        .message-form {
+            margin-top: 20px;
+        }
 
-input,
-textarea {
-    width: 100%;
-    padding: 13px 15px;
-    border: 2px solid #dcefe9;
-    border-radius: 12px;
-    font-size: 15px;
-    font-family: inherit;
-    outline: none;
-}
+        .message-form input,
+        .message-form textarea {
+            display: block;
+            width: 100%;
+            margin: 12px 0;
+            padding: 12px;
 
-input:focus,
-textarea:focus {
-    border-color: #56c9a6;
-}
+            border: 1px solid #c9ded8;
+            border-radius: 10px;
 
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+            background: white;
+            color: black;
 
-button {
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-}
+            font-family: "Zhi Mang Xing", sans-serif;
+            font-size: 22px;
 
-.submit-button {
-    width: 100%;
-    padding: 14px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #35c99b, #0cf296);
-    transition: 0.2s;
-}
+            user-select: text;
+        }
 
-.submit-button:hover {
-    transform: translateY(-2px);
-}
+        .message-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
 
-.submit-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
+        .message-form button,
+        .refresh-button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
 
-.status {
-    text-align: center;
-    margin-top: 15px;
-    min-height: 24px;
-    font-size: 14px;
-    overflow-wrap: anywhere;
-}
+            background: #bce9d9;
+            color: black;
 
-.count {
-    text-align: right;
-    margin-top: 5px;
-    font-size: 13px;
-    color: #91aaa1;
-}
+            font-family: "Zhi Mang Xing", sans-serif;
+            font-size: 22px;
 
-.message-card {
-    padding: 17px;
-    margin-bottom: 13px;
-    background: #f3fbf8;
-    border-left: 4px solid #69d6b0;
-    border-radius: 12px;
-    overflow-wrap: anywhere;
-}
+            cursor: pointer;
+        }
 
-.message-name {
-    font-weight: bold;
-    color: #268b70;
-    margin-bottom: 8px;
-}
+        .message-form button:hover,
+        .refresh-button:hover {
+            background: #a4dfca;
+        }
 
-.message-text {
-    line-height: 1.8;
-    white-space: pre-wrap;
-}
+        .message-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
-.message-time {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #91aaa1;
-}
+        /* 新增：留言列表 */
+        .message-list {
+            margin-top: 25px;
+            text-align: left;
+        }
 
-.empty {
-    text-align: center;
-    padding: 30px 10px;
-    color: #91aaa1;
-}
+        .message-card {
+            padding: 15px;
+            margin: 12px 0;
+            background: white;
+            border-radius: 10px;
+            overflow-wrap: anywhere;
+        }
 
-.footer {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 13px;
-    color: #91aaa1;
-}
+        .message-name {
+            font-size: 23px;
+            font-weight: bold;
+        }
 
-@media (max-width: 550px) {
+        .message-content {
+            margin-top: 6px;
+            font-size: 22px;
+            white-space: pre-wrap;
+        }
 
-    body {
-        padding: 15px 10px;
-    }
+        .message-date {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #777;
+            text-align: right;
+        }
 
-    .container {
-        padding: 23px 18px;
-    }
+        .status {
+            margin-top: 12px;
+            font-size: 20px;
+            overflow-wrap: anywhere;
+        }
 
-}
+        /* 手机适配 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
 
-</style>
+            .body2 {
+                font-size: 22px;
+            }
+        }
 
+    </style>
 </head>
 
 <body>
 
-<main class="container">
+    <div class="table-wrapper">
 
-    <header>
+        <div class="container">
 
-        <div class="flower">🌷 🌿 🌷</div>
-
-        <h1>老师，谢谢你</h1>
-
-        <p class="subtitle">
-            感谢老师一直以来的辛勤付出与耐心指导。<br>
-            因为有您的陪伴，我们才能不断成长。<br>
-            祝老师身体健康、工作顺利、生活幸福！
-        </p>
-
-    </header>
-
-    <div class="divider"></div>
-
-    <!-- 留言表单 -->
-
-    <section>
-
-        <h2 class="section-title">💌 写下你的感谢</h2>
-
-        <form id="messageForm">
-
-            <div class="form-group">
-
-                <label for="studentName">你的名字</label>
-
-                <input
-                    id="studentName"
-                    type="text"
-                    maxlength="30"
-                    placeholder="请输入你的名字"
-                    required
-                >
-
+            <div class="title">
+                老师，谢谢你
             </div>
 
-            <div class="form-group">
+            <p class="body">
+                感谢您在我们学习道路上的辛勤付出和耐心指导。
+                您的教诲不仅让我们掌握了知识，
+                更让我们懂得了做人做事的道理。
+                祝您身体健康，工作顺利，生活幸福！
+            </p>
 
-                <label for="studentMessage">感谢留言</label>
+            <p class="body2">
+                这是来自各位学生的感谢：
+            </p>
 
-                <textarea
-                    id="studentMessage"
-                    maxlength="500"
-                    placeholder="写下你想对老师说的话……"
-                    required
-                ></textarea>
+            <div class="students">
 
-                <div class="count">
-                    <span id="charCount">0</span>/500
+                感谢每一位老师的辛勤付出！💚
+
+                <!-- 留言输入 -->
+                <form class="message-form" id="messageForm">
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        maxlength="30"
+                        placeholder="请输入你的姓名"
+                        required
+                    >
+
+                    <textarea
+                        id="studentMessage"
+                        maxlength="500"
+                        placeholder="写下你想对老师说的话……"
+                        required
+                    ></textarea>
+
+                    <button type="submit" id="submitButton">
+                        提交感谢
+                    </button>
+
+                </form>
+
+                <div class="status" id="status" role="status" aria-live="polite"></div>
+
+                <!-- 留言展示 -->
+                <div class="message-list" id="messageList">
+                    正在加载大家的感谢……
                 </div>
 
-            </div>
+                <button class="refresh-button" id="refreshButton" type="button">
+                    刷新留言
+                </button>
 
-            <button
-                type="submit"
-                class="submit-button"
-                id="submitButton"
-            >
-                🌷 发送感谢
-            </button>
-
-        </form>
-
-        <div
-            class="status"
-            id="formStatus"
-            aria-live="polite"
-        ></div>
-
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- 留言墙 -->
-
-    <section>
-
-        <h2 class="section-title">
-            💚 来自同学们的感谢
-        </h2>
-
-        <div id="messageList">
-
-            <div class="empty">
-                正在加载留言……
             </div>
 
         </div>
 
-    </section>
-
-    <footer class="footer">
-        Made with 💚 for our teachers
-    </footer>
-
-</main>
-
+    </div>
 
 <script>
+"use strict";
 
-// ==================================================
-// 1. SUPABASE CONFIGURATION
-// ==================================================
+/* =====================================
+   Supabase Configuration
+===================================== */
 
 const CONFIG = {
-
-    // 填入你的 Supabase Project URL
-    SUPABASE_URL: "https://oicbculzzyydkueryrcj.supabase.co",
-
-    // 填入你的 Publishable Key
-    SUPABASE_KEY: "sb_publishable_pIi99Qo0hqnV8_hOJ62vSQ_dMFeK9rB",
-
-    // Edge Function 名称
-    FUNCTION_NAME: "teacher-messages",
-
-    // 自动刷新：30 秒
-    REFRESH_INTERVAL: 30000,
-
-    // 最多显示 100 条留言
-    MAX_MESSAGES: 100
-
+    SUPABASE_URL: "YOUR_SUPABASE_URL",
+    SUPABASE_KEY: "YOUR_PUBLISHABLE_KEY",
+    FUNCTION_NAME: "teacher-messages"
 };
 
-
-// ==================================================
-// 2. API CONFIGURATION
-// ==================================================
-
 const API_URL =
-    `${CONFIG.SUPABASE_URL.replace(/\/+$/, "")}` +
-    `/functions/v1/${CONFIG.FUNCTION_NAME}`;
+    CONFIG.SUPABASE_URL.replace(/\/+$/, "") +
+    "/functions/v1/" +
+    CONFIG.FUNCTION_NAME;
 
+/* =====================================
+   DOM
+===================================== */
 
-function getHeaders() {
+const form = document.getElementById("messageForm");
+const nameInput = document.getElementById("studentName");
+const messageInput = document.getElementById("studentMessage");
+const submitButton = document.getElementById("submitButton");
+const refreshButton = document.getElementById("refreshButton");
+const statusBox = document.getElementById("status");
+const messageList = document.getElementById("messageList");
 
-    return {
+/* =====================================
+   Configuration Check
+===================================== */
 
-        "Content-Type": "application/json",
+function isConfigured() {
+    return (
+        CONFIG.SUPABASE_URL.startsWith("https://") &&
+        CONFIG.SUPABASE_URL.includes(".supabase.co") &&
+        CONFIG.SUPABASE_KEY !== "YOUR_PUBLISHABLE_KEY" &&
+        CONFIG.SUPABASE_KEY.trim() !== ""
+    );
+}
 
-        "apikey": CONFIG.SUPABASE_KEY
+/* =====================================
+   Status
+===================================== */
 
+function setStatus(message) {
+    statusBox.textContent = message;
+}
+
+/* =====================================
+   API Request
+===================================== */
+
+async function apiRequest(method, body = null) {
+
+    if (!isConfigured()) {
+        throw new Error(
+            "请先填写 Supabase Project URL 和 Publishable Key。"
+        );
+    }
+
+    const options = {
+        method: method,
+        headers: {
+            "Content-Type": "application/json",
+            "apikey": CONFIG.SUPABASE_KEY
+        }
     };
 
-}
-
-
-function checkConfiguration() {
-
-    if (
-        CONFIG.SUPABASE_URL === "YOUR_SUPABASE_URL" ||
-        CONFIG.SUPABASE_KEY === "YOUR_PUBLISHABLE_KEY" ||
-        !CONFIG.SUPABASE_URL ||
-        !CONFIG.SUPABASE_KEY
-    ) {
-
-        return false;
-
+    if (body !== null) {
+        options.body = JSON.stringify(body);
     }
 
-    return true;
+    const response = await fetch(API_URL, options);
 
-}
+    let data;
 
-
-// ==================================================
-// 3. GET MESSAGES
-// ==================================================
-
-async function getMessages() {
-
-    const response = await fetch(API_URL, {
-
-        method: "GET",
-
-        headers: getHeaders()
-
-    });
-
-    if (!response.ok) {
-
-        throw new Error(
-            "读取留言失败：" + response.status
-        );
-
+    try {
+        data = await response.json();
+    } catch {
+        throw new Error("服务器返回的数据无法读取。");
     }
 
-    const data = await response.json();
-
-    return data.messages || [];
-
-}
-
-
-// ==================================================
-// 4. SAVE MESSAGE
-// ==================================================
-
-async function saveMessage(name, message) {
-
-    const response = await fetch(API_URL, {
-
-        method: "POST",
-
-        headers: getHeaders(),
-
-        body: JSON.stringify({
-
-            name: name,
-
-            message: message
-
-        })
-
-    });
-
-    const data = await response.json();
-
     if (!response.ok) {
-
         throw new Error(
-            data.error || "提交失败"
+            data.error || `服务器错误：HTTP ${response.status}`
         );
-
     }
 
     return data;
-
 }
 
+/* =====================================
+   Load Messages
+===================================== */
 
-// ==================================================
-// 5. DISPLAY MESSAGES
-// ==================================================
+let isLoading = false;
 
-function displayMessages(messages) {
+async function loadMessages() {
 
-    const list =
-        document.getElementById("messageList");
+    if (isLoading) return;
 
-    list.replaceChildren();
-
-    if (!messages.length) {
-
-        const empty =
-            document.createElement("div");
-
-        empty.className = "empty";
-
-        empty.textContent =
-            "🌱 还没有留言，成为第一个感谢老师的人吧！";
-
-        list.appendChild(empty);
-
-        return;
-
-    }
-
-    messages
-        .slice(0, CONFIG.MAX_MESSAGES)
-        .forEach(item => {
-
-            const card =
-                document.createElement("div");
-
-            card.className = "message-card";
-
-
-            const name =
-                document.createElement("div");
-
-            name.className = "message-name";
-
-            name.textContent =
-                "🌷 " + item.student_name;
-
-
-            const message =
-                document.createElement("div");
-
-            message.className = "message-text";
-
-            message.textContent =
-                item.message;
-
-
-            const time =
-                document.createElement("div");
-
-            time.className = "message-time";
-
-            const date =
-                new Date(item.created_at);
-
-            time.textContent =
-                isNaN(date.getTime())
-                    ? ""
-                    : date.toLocaleString();
-
-
-            card.appendChild(name);
-
-            card.appendChild(message);
-
-            card.appendChild(time);
-
-            list.appendChild(card);
-
-        });
-
-}
-
-
-// ==================================================
-// 6. REFRESH MESSAGES
-// ==================================================
-
-let isRefreshing = false;
-
-async function refreshMessages() {
-
-    if (!checkConfiguration()) {
-
-        document.getElementById("messageList")
-            .textContent =
-            "⚙️ 请先设置 Supabase URL 和 Publishable Key。";
-
-        return;
-
-    }
-
-    if (isRefreshing) return;
-
-    isRefreshing = true;
+    isLoading = true;
 
     try {
 
-        const messages = await getMessages();
+        const data = await apiRequest("GET");
 
-        displayMessages(messages);
+        if (!Array.isArray(data.messages)) {
+            throw new Error("留言数据格式不正确。");
+        }
+
+        messageList.replaceChildren();
+
+        if (data.messages.length === 0) {
+
+            messageList.textContent =
+                "还没有留言，成为第一个留下感谢的人吧！💚";
+
+            return;
+        }
+
+        for (const item of data.messages) {
+
+            const card = document.createElement("div");
+            card.className = "message-card";
+
+            const name = document.createElement("div");
+            name.className = "message-name";
+            name.textContent = item.student_name || "匿名学生";
+
+            const content = document.createElement("div");
+            content.className = "message-content";
+            content.textContent = item.message || "";
+
+            const date = document.createElement("div");
+            date.className = "message-date";
+
+            const parsedDate = new Date(item.created_at);
+
+            date.textContent =
+                Number.isNaN(parsedDate.getTime())
+                    ? ""
+                    : parsedDate.toLocaleString("zh-CN");
+
+            card.append(name, content, date);
+            messageList.appendChild(card);
+        }
 
     } catch (error) {
 
-        console.error(error);
-
-        document.getElementById("messageList")
-            .textContent =
-            "⚠️ 无法加载留言，请检查网络和 Supabase 设置。";
+        messageList.textContent = "暂时无法加载留言。";
+        setStatus(error.message);
 
     } finally {
 
-        isRefreshing = false;
-
+        isLoading = false;
     }
-
 }
 
+/* =====================================
+   Submit Message
+===================================== */
 
-// ==================================================
-// 7. SUBMIT MESSAGE
-// ==================================================
-
-const form =
-    document.getElementById("messageForm");
-
-const statusBox =
-    document.getElementById("formStatus");
-
-const submitButton =
-    document.getElementById("submitButton");
-
-
-form.addEventListener("submit", async function(event) {
+form.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    const name =
-        document.getElementById("studentName")
-            .value.trim();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
 
-    const message =
-        document.getElementById("studentMessage")
-            .value.trim();
-
-
-    // 检查输入
     if (!name || !message) {
-
-        statusBox.textContent =
-            "⚠️ 请填写姓名和留言。";
-
+        setStatus("请填写姓名和留言。");
         return;
-
     }
-
 
     if (name.length > 30 || message.length > 500) {
-
-        statusBox.textContent =
-            "⚠️ 输入内容超过长度限制。";
-
+        setStatus("姓名最多30字，留言最多500字。");
         return;
-
     }
 
-
-    if (!checkConfiguration()) {
-
-        statusBox.textContent =
-            "⚙️ 请先设置 Supabase 配置。";
-
-        return;
-
-    }
-
-
-    // 防止重复点击
     submitButton.disabled = true;
-
-    submitButton.textContent =
-        "正在发送……";
-
-    statusBox.textContent =
-        "☁️ 正在提交留言……";
-
+    setStatus("正在提交你的感谢……");
 
     try {
 
-        // 发送到 Supabase Edge Function
-        // 粗口审核由服务器完成
+        const data = await apiRequest("POST", {
+            name,
+            message
+        });
 
-        await saveMessage(name, message);
+        if (!data.success) {
 
-        statusBox.textContent =
-            "💚 提交成功！感谢你对老师的祝福！";
+            if (data.status === "block") {
+                throw new Error(
+                    data.error || "留言包含不适当的词语，请修改后再试。"
+                );
+            }
+
+            if (data.status === "review") {
+                throw new Error(
+                    data.error || "留言需要进一步检查，请修改后再试。"
+                );
+            }
+
+            throw new Error(data.error || "留言提交失败。");
+        }
 
         form.reset();
+        setStatus("感谢已经成功送达！💚");
 
-        document.getElementById("charCount")
-            .textContent = "0";
-
-        await refreshMessages();
+        await loadMessages();
 
     } catch (error) {
 
-        console.error(error);
-
-        statusBox.textContent =
-            "❌ " + error.message;
+        setStatus(error.message);
 
     } finally {
 
         submitButton.disabled = false;
-
-        submitButton.textContent =
-            "🌷 发送感谢";
-
     }
 
 });
 
+/* =====================================
+   Refresh
+===================================== */
 
-// ==================================================
-// 8. CHARACTER COUNTER
-// ==================================================
+refreshButton.addEventListener("click", loadMessages);
 
-document
-    .getElementById("studentMessage")
-    .addEventListener("input", function() {
+/* 每30秒自动刷新 */
+setInterval(loadMessages, 30000);
 
-        document.getElementById("charCount")
-            .textContent = this.value.length;
-
-    });
-
-
-// ==================================================
-// 9. START APPLICATION
-// ==================================================
-
-refreshMessages();
-
-setInterval(
-    refreshMessages,
-    CONFIG.REFRESH_INTERVAL
-);
+/* 初始加载 */
+loadMessages();
 
 </script>
 
